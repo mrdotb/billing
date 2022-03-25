@@ -1,0 +1,3 @@
+<%= for invoice <- @invoices do %>
+  <%= link(invoice.number, to: Routes.invoice_path(@conn, :show, invoice.id)) %>
+<% end %>

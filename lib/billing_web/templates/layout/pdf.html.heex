@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= csrf_meta_tag() %>
+    <%= live_title_tag assigns[:page_title] || "Billing", suffix: " · Phoenix Framework" %>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/pdf.css")}/>
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/pdf.js")}></script>
+  </head>
+  <body>
+    <div id="layout" class="layout">
+      <aside id="aside"></aside>
+      <main>
+        <header id="header"></header>
+        <div id="grid" class="grid">
+          <div id="menu" class="menu">
+            <div id="block" class="block">
+              <div>Print</div>
+              <div class="button-print">Print</div>
+            </div>
+          </div>
+          <div id="preview"></div>
+        </div>
+      </main>
+    </div>
+    <div id="root">
+      <%= @inner_content %>
+    </div>
+  </body>
+</html>
